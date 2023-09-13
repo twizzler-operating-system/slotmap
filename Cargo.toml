@@ -14,7 +14,7 @@ categories = ["data-structures", "memory-management", "caching"]
 default = ["std"]
 unstable = []
 std = []
-rustc-dep-of-std = ["alloc"]
+rustc-dep-of-std = ["alloc", "compiler_builtins/rustc-dep-of-std", "core"]
 
 [dependencies]
 serde = { version = "1.0", optional = true, default-features = false, features = [
@@ -22,6 +22,15 @@ serde = { version = "1.0", optional = true, default-features = false, features =
     "alloc",
 ] }
 alloc = { version = "1.0.0", optional = true, package = "rustc-std-workspace-alloc" }
+
+[dependencies.compiler_builtins]
+optional = true
+version = "0.1"
+
+[dependencies.core]
+optional = true
+package = "rustc-std-workspace-core"
+version = "1.0.0"
 
 [dev-dependencies]
 fxhash = "0.2.1"
